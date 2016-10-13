@@ -37,7 +37,7 @@ module.exports = function (grunt) {
         var isGlob = function (filename) { return reGlob.test(filename); };
 
         var createFilename = function (destination, filepath) {
-            return path.resolve(destination, path.basename(filepath));
+            return destination != null ? path.resolve(destination, path.basename(filepath)) : filepath;
         };
 
         this.files.forEach(function (file) {
